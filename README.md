@@ -4,6 +4,7 @@
 
 # What this Bot will Do?
 This Bot will Loigin into your Google Account and Join the Online Lectures.
+This Bot was customised in such a way that it will be beneficial for only a certain group of members, say, in this case, for students studying in Karunya Institute of technology and sciences.
 
 # Contribution 
 All the Pyhton Developer who want to Contribute to this Project Just Fork This Repository and Start your Work
