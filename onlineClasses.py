@@ -1,8 +1,8 @@
 #Although anyone can use the code to automate the process of logging in to their online classes,there is just a couple of basic prerequisites for the code to work:
-#1.install selenium module
-#2.download chrome webdriver
-#3.any texteditor to run the code 
-#by now you're all good to go :)
+#1. Install selenium module
+#2. Download chrome webdriver
+#3. Any text-editor to run the code 
+# By now, you're all good to go :)
 from selenium import webdriver
 from time import sleep
 from datetime import datetime
