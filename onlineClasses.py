@@ -1,3 +1,8 @@
+#Although anyone can use the code to automate the process of logging in to their online classes,there is just a couple of basic prerequisites for the code to work:
+#1.install selenium module
+#2.download chrome webdriver
+#3.any texteditor to run the code 
+#by now you're all good to go :)
 from selenium import webdriver
 from time import sleep
 from datetime import datetime
@@ -18,7 +23,6 @@ opt.add_experimental_option(
     },
 )
 
-
 class LoginSession:
     def __init__(self, username, pwd, email, pas):
         self.driver = webdriver.Chrome(
@@ -31,27 +35,29 @@ class LoginSession:
         self.driver.get(
             "https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/mail/&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1#identifier"
         )
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
         self.driver.find_element_by_xpath(
             "/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div/div[1]/div/div[1]/input"
         ).send_keys(email)
         self.driver.find_element_by_xpath(
             "/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"
         ).click()
-        sleep(5)
+        sleep(3)
         self.driver.find_element_by_xpath(
             '//*[@id="password"]/div[1]/div/div[1]/input'
         ).send_keys(pas)
         self.driver.find_element_by_xpath(
             "/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]"
         ).click()
-        sleep(2)
         self.driver.get("https://online.karunya.edu/oauth/login")
-        sleep(1)
+        sleep(3)
         now = datetime.now()
-        print(now)
-        # current_time = now.strftime("%I:00 %p")
-        current_time = now.strftime("12:00 PM")
+        print(now.hour+1)
+        if(now.minute>30):
+            current_time = now.strftime(str(now.hour+1)+":00 %p - ")
+        else:
+            current_time = now.strftime("%I:00 %p - ")
+            
         print("Current Time =", current_time)
         self.driver.find_element_by_xpath(
             "/html/body/div[3]/div[2]/div[1]/div[1]/div/select"
@@ -59,7 +65,7 @@ class LoginSession:
         self.driver.find_element_by_xpath(
             "/html/body/div[3]/div[2]/div[1]/div[1]/div/select/option[1]"
         ).click()
-        sleep(5)
+        sleep(3)
         self.driver.find_element_by_xpath(
             "/html/body/div[3]/div[2]/div[1]/form/div[1]/div/input"
         ).send_keys(username)
@@ -75,20 +81,19 @@ class LoginSession:
         self.driver.find_element_by_xpath(
             "/html/body/div[3]/div[2]/main/div/div/div[2]/div/div/div/table/tbody/tr/td[4]/a"
         ).click()
-        sleep(3)
-        # self.driver.close()
-        # #### NEED HELP CLOSING THE FIRST TAB AND SWITCHING TARGET TO THE SECOND TAB ### #
-        sleep(7)
+        self.driver.switch_to.window(self.driver.window_handles[1])
+        sleep(5)
         self.driver.find_element_by_xpath("(//*[@role='button'])[1]").click()
         print("mike off")
-        sleep(3)
+        sleep(2)
         self.driver.find_element_by_xpath("(//*[@role='button'])[2]").click()
         print("cam off")
         sleep(2)
-        self.driver.find_element_by_xpath("//*[text()='Ask to join']").click()
+        self.driver.find_element_by_xpath("//*[text()='Join now']").click()
         print("joined the meet")
-
+        sleep(3)
 
 student = LoginSession(
     "##REG NO HERE##", "###Seraph PSWD###", "###CLG MAIL HERE##", "###EMAIL PSWD###"
 )
+# coded with 💖 by Aishwarya Murugappan
