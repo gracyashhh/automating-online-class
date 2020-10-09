@@ -11,6 +11,7 @@ This Bot was customised in such a way that it will be beneficial for only a cert
 * Install selenium module
 * Download chrome webdriver
 * Any text-editor to run the code 
+* Don't Forget to change the path(where chromedriver was installed in your system) in line no. 30 and your Reg no and password in line no 98 in the code!
 By now, you're all good to go :)
 # Contribution 
 All the Pyhton Developer who want to Contribute to this Project Just Fork This Repository and Start your Work
