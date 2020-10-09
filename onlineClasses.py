@@ -26,6 +26,7 @@ opt.add_experimental_option(
 class LoginSession:
     def __init__(self, username, pwd, email, pas):
         self.driver = webdriver.Chrome(
+            # Don't Forget to change the path below (where chromedriver was installed in your system)
             chrome_options=opt, executable_path="D:\chromedriver\chromedriver.exe"
         )
         self.username = username
@@ -94,6 +95,6 @@ class LoginSession:
         sleep(3)
 
 student = LoginSession(
-    "##REG NO HERE##", "###Seraph PSWD###", "###CLG MAIL HERE##", "###EMAIL PSWD###"
+    "##REG NO HERE##", "###Seraph PSWD###", "###CLG MAIL HERE##", "###EMAIL PSWD###"    
 )
 # coded with 💖 by Aishwarya Murugappan
